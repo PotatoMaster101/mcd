@@ -1,0 +1,22 @@
+# MCD
+Small tool to automatically press CTRL and left click in random intervals, used for auto dancing in Minecraft.
+
+## Building
+Requires [`cargo`](https://www.rust-lang.org/):
+```
+$ cargo build --release
+```
+
+## Usage
+```
+$ mcd --help
+mcd
+Automatically press CTRL and left click in random intervals, use CAPS-LOCK to toggle
+
+USAGE:
+    mcd [OPTIONS]
+
+OPTIONS:
+    -i, --interval <INTERVAL>    Milliseconds for maximum wait time, defaults to 75
+    -h, --help                   Print help information
+```
