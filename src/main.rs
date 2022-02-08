@@ -18,7 +18,10 @@ struct Cli {
     pub interval: Option<u32>,
 
     #[clap(short, long, display_order = 2, help = "Sneak key to press, defaults to CTRL")]
-    pub key: Option<String>
+    pub key: Option<String>,
+
+    #[clap(long, display_order = 2, help = "Do not use mouse click")]
+    pub noclick: bool
 }
 
 fn main() {
@@ -31,16 +34,21 @@ fn main() {
         None => LControlKey,
         Some(i) => if i == "SHIFT" { LShiftKey } else { LControlKey }
     };
+    let noclick = args.noclick;
 
     CapsLockKey.bind(move || {
         let mut rng = rand::thread_rng();
         while CapsLockKey.is_toggled() {
             sleep(Duration::from_millis(rng.gen_range(MIN_INTERVAL..interval).into()));
             key.press();
-            LeftButton.press();
+            if !noclick {
+                LeftButton.press();
+            }
             sleep(Duration::from_millis(MIN_INTERVAL.into()));
             key.release();
-            LeftButton.release();
+            if !noclick {
+                LeftButton.release();
+            }
         }
     });
     println!("Use CAPS-LOCK to toggle");
