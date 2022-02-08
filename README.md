@@ -18,5 +18,7 @@ USAGE:
 
 OPTIONS:
     -i, --interval <INTERVAL>    Milliseconds for maximum wait time, defaults to 75
+    -k, --key <KEY>              Sneak key to press, defaults to CTRL
+        --noclick                Do not use mouse click
     -h, --help                   Print help information
 ```
