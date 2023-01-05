@@ -1,0 +1,9 @@
+[package]
+name = "mcd"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "3.0.13", features = [ "derive" ] }
+inputbot = { git = "https://github.com/obv-mikhail/InputBot", branch = "develop" }
+rand = "0.8.4"
